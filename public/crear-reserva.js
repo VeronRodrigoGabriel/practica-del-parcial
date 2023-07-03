@@ -1,4 +1,4 @@
-const formCrearReserva =  document.querySelector('#formNuevaReserva')
+const formCrearReserva = document.querySelector('#formNuevaReserva')
 
 formCrearReserva.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -16,8 +16,8 @@ formCrearReserva.addEventListener('submit', async (e) => {
 
     const reserva = {
         nombre,
-        apellido, 
-        fecha_ingreso, 
+        apellido,
+        fecha_ingreso,
         fecha_salida,
         habitacion,
         telefono,
@@ -25,11 +25,11 @@ formCrearReserva.addEventListener('submit', async (e) => {
         cantidad_personas
     }
 
-    const response = await fetch("http://localhost:3000/api", {
+    const response = await fetch("/api", {
         method: "POST",
         body: JSON.stringify(reserva),
         headers: {
-            'Content-Type':'application/json'
+            'Content-Type': 'application/json'
         }
     })
 
@@ -37,6 +37,6 @@ formCrearReserva.addEventListener('submit', async (e) => {
 
     alert(data.message)
     window.location.href = "/"
-    
+
 
 })
